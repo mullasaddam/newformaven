@@ -10,11 +10,6 @@ pipeline {
             sh "mvn clean"
                 }
             }
-         stage('skiptest') {
-            steps {
-            sh "mvn -DskipTests"
-              }
-          }
           stage('install') {
             steps{
              sh "mvn install"
