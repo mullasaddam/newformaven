@@ -1,47 +1,27 @@
+
 pipeline {
-
     agent any
-
-
     stages {
-
-
-      stage('build clean') {
-
+      stage('clean') {
           steps {
-            sh 'mvn clean'
-
+            sh "mvn clean"
+                }
             }
-
-         }
-
          stage('skiptest') {
-
             steps {
-
-            sh 'mvn -DskipTests'
-
-            }
-
+            sh "-DskipTests"
+              }
           }
-
           stage('install') {
-
             steps{
-
-             sh 'mvn install'
-
+             sh "install"
              }
            }
 
          stage('package') {
-
           steps {
-
-          sh 'mvn package'
-
+          sh "package"
           }
-
          }
- }
+  }
  }
